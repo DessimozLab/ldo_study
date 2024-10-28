@@ -4,9 +4,9 @@ The python scripts contained in this repo were used to calculate the branch leng
 
 step1_expected_branches
 -------
-Used for finidng FsxA and comparing FsxA profiles to known fusexin profiles. ( Figure 1.a , supp Figure 1 ).
+Use to compute the expected branch lengths, using a simple evolutionary model. This gives us a method to identify the unexpectedly long branches, so that we can test the hypothesis of the Least Diverged Orthologue (LDO).
 
-Kmer
+step2_expectedness_of_duplications
 ----
 Used for finding IMEs using kmer spectra and extracting transfered regions. ( Figure 4.a , Supp Figure 6 )
 
@@ -47,7 +47,7 @@ Time of aquisition analysis to find the approximate evolutionary period where Fs
 
 data
 -----------
-### panther-18.0/trees/ -> contains all trees from panther
+#### panther-18.0/trees/ -> contains all trees from panther
 
 1. download: wget http://data.pantherdb.org/ftp/panther_library/18.0/PANTHER18.0_hmmscoring.tgz
 
@@ -55,7 +55,7 @@ data
 
 3. rename to trees/PTHR*.tree
 
-### panther-18.0/species_tree.nhx -> species tree
+#### panther-18.0/species_tree.nhx -> species tree
 downloaded using panther api with: scripts/panther_species_tree.py
 
 
