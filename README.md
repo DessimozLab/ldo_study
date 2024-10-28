@@ -1,13 +1,10 @@
 # LDO project Repo
 -----------------
-The python scripts contained in this repo were used to generate the KMER spectra, structural comparison and HMM comparison results. There is also code used in phylogenetic tree annotation and for generating the annotation of proteomes using HMMER, pfam and ArCOG databases. Each notebook contains a first explanatory markdown cell and comments in the code to help users replicate the analysis.
+The python scripts contained in this repo were used to calculate the branch length significant differences between paralogs and to identify the asymmetric evolution. This method was applied to all gene families across the Tree of Life in the PANTHER database. There is also code used to analyse the gene structures and gene expression profiles. Each notebook contains a first explanatory markdown cell and comments in the code to help users replicate the analysis.
 
-The Datasource folder also contains files relevant to the manuscript such as movies, tables etc.
-
-
-HHblits
+step1_expected_branches
 -------
-Ipython notebook used with HHblits. Used for finidng FsxA and comparing FsxA profiles to known fusexin profiles. ( Figure 1.a , supp Figure 1 ).
+Used for finidng FsxA and comparing FsxA profiles to known fusexin profiles. ( Figure 1.a , supp Figure 1 ).
 
 Kmer
 ----
@@ -48,8 +45,24 @@ time_acquisition
 ----------------
 Time of aquisition analysis to find the approximate evolutionary period where Fsx1 emerged. ( Supplementary Fig. 15). 
 
-Datasource
+data
 -----------
+### panther-18.0/trees/ -> contains all trees from panther
+
+1. download: wget http://data.pantherdb.org/ftp/panther_library/18.0/PANTHER18.0_hmmscoring.tgz
+
+2. extract only the tree files: tar -zxvf PANTHER18.0_hmmscoring.tgz target/famlib/rel/PANTHER18.0_altVersion/hmmscoring/PANTHER18.0/books/PTHR*/tree.tree
+
+3. rename to trees/PTHR*.tree
+
+### panther-18.0/species_tree.nhx -> species tree
+downloaded using panther api with: scripts/panther_species_tree.py
+
+
+
+
+
+
 Contains supplementary files produced by bioinformatics analysis, primers, synthesized sequences, movies, sequence identifiers etc.
 
 A note on software and system requirements
