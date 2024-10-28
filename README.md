@@ -1,6 +1,6 @@
 # LDO project Repo
 ------------------
-The python scripts contained in this repo were used to calculate the branch length significant differences between paralogs and to identify the asymmetric evolution. This method was applied to all gene families across the Tree of Life in the PANTHER database. There is also code used to analyse the gene structures and gene expression profiles. Each notebook contains a first explanatory markdown cell and comments in the code to help users replicate the analysis.
+The python scripts contained in this repo were used to calculate the branch length significant differences between paralogs and to identify asymmetric evolution. This method was applied to all gene families across the Tree of Life in the PANTHER database. There is also code used to analyse the gene structures and gene expression profiles. Each notebook contains a first explanatory markdown cell and comments in the code to help users replicate the analysis.
 
 step1_expected_branches
 -----------------------
