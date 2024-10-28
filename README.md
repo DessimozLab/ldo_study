@@ -41,74 +41,67 @@ Also generates Fig 1, Supp Fig 1, Supp Fig 2
 
 Additionally, identifies the genes for the outgroup test.
 
+
 step3_structure_data
 --------------------
-This document co
+Use to download the structure data and compute the structural alignment.
+
 
 step4_loading_expression_data-rna_seq
 -------------------------------------
-This document contains the code that downloads and reformats the available expression data from the bgee database and reformat all the expression data used.
+This document contains the code that downloads and reformats the available expression data from the bgee database (https://www.bgee.org/) and reformat all the expression data used.
+
 The plant expression data was downloaded from: https://expression.plant.tools/
+
 
 step5_genome_mapping
 --------------------
 Generate genome mapping tables for each of the species. This is necessary as PANTHER genomes are imported from UniProt RPs, whereas bgee is using ensembl data directly.
 
 
-step6_tissue_specificity
-------------------------
-
-
-step7_pairwise
+step6_pairwise
 --------------
-This notebook was used to parse the results of the phmmer search against the metaclust database. The HMM used to search the DB is also included in this folder. ( Source data table 1 )
+This notebook contains the code to run the inparalogue pairwise Pearson's correlation and tissue specificity ($\tau$) tests.
+
+
+step7_tissue_specificity
+------------------------
+This notebook contains the code to compute tissue specicity scores ($\tau$). To do this the TPM data is first transformed using the `arcsinh` function -- $\textrm{arcsinh}(x) := \ln (x + \sqrt{x^2 + 1})$ -- before taking the mean value of any replicates.
+
 
 step8_outgroup
 --------------
-Data, scripts, and notebooks to generate IMEs clustering based on Jaccard indexes (Supplementary Fig. 8) and  synteny plots (Fig. 4b; Supplementary Fig. 9).
+This notebook identifies relevant species to use for each branch in the species tree as outgroup species.
+
+After, LDO / MDO are compared to the outgroup gene with both a PCC and tau analysis.
+
 
 step9_plots
 -----------
-Data, scripts and structural models to produce the phylogenetic tree with environmental information and selected trimers with electrostatic surfaces to be calculated with APBS (Extended Fig. 8). 
+This notebook contains all the code used to analyze the data and generate the plots presented in the paper.
 
 
+lib/
+----
+This folder contains the modules used to parse the panther trees in step_1.
 
 
-non_rev_rooting
----------------
-Non reversible rooting analysis using sequence data to place the root of Fsx1 in either archaea or eukaryota. (Supplementary Fig. 10).
-
-time_acquisition
+general_scripts/
 ----------------
-Time of aquisition analysis to find the approximate evolutionary period where Fsx1 emerged. ( Supplementary Fig. 15). 
+Scripts used to analyse the data and download specific datasets.
 
 
+structure_scripts/
+------------------
+Scripts used in step_3.
 
-
-
-Contains supplementary files produced by bioinformatics analysis, primers, synthesized sequences, movies, sequence identifiers etc.
 
 A note on software and system requirements
-----------------------
-This software and the scripts used for this project have only been tested on Ubuntu 18.04 and 20.04 environments
-At various steps of the project compelementary bioinformatics strategies were used to generate models or search for homology. Furthermore, several external tools are called by these scripts and notebooks. Installation instuctions and dependencies for the software used in this project can be found at the following locations:
+------------------------------------------
+The scripts used for this project have only been tested on Ubuntu 24.04 environment.
 
-HH-Suite:[https://github.com/soedinglab/hh-suite] ( v3.3.0 )
-Emboss:[http://emboss.sourceforge.net/download/] ( v6.5.7 )
-Blast suite:[https://blast.ncbi.nlm.nih.gov/Blast.cgi] ( v2.12.0 )
-Hmmer:[http://hmmer.org/] ( v3.3.2 ) 
-OpenMM suite and pdbfixer:[https://openmm.org/] ( v7.6.0 and 1.8.1 respectively )
-ClustalO:[http://www.clustal.org/omega/] ( v1.2.2 )
-iqtree:[http://www.iqtree.org/] ( v2 )
-MAD root:[https://github.com/davidjamesbryant/MADroot] ( v1.0 )
-AlphaFold:[https://github.com/deepmind/alphafold] ( v2.1.1 )
-TMalign:[https://zhanggroup.org/TM-align/] (Version 20210224)
-FATCAT:[https://fatcat.godziklab.org/] ( v2.0 )
-I-tasser:[https://zhanggroup.org/I-TASSER/] ( v5.1 )
-Modeller:[https://salilab.org/modeller/] ( v10.2 )
-TOPCONS:[https://topcons.cbr.su.se/] ( v2.0 )
-McScan:[https://github.com/tanghaibao/mcscan] ( v0.8 )
-FastME:[http://www.atgc-montpellier.fr/fastme/] ( v2.0 )
-rootDigger:[https://github.com/computations/root_digger] ( v1.7.0 )
+At various steps several external tools are called by these scripts and notebooks. 
 
-The metaclust and uniclust30 databases used with Hmmer and HHblits can be found on the mmseqs web page at [https://metaclust.mmseqs.org/] and [https://uniclust.mmseqs.com/] respectively. The Pfam database is available at Pfam:[http://pfam.xfam.org/]( v33 ). 
+Installation instuctions and dependencies for the software used in this project can be found at the following locations:
+
+foldseek:[https://github.com/steineggerlab/foldseek] (v8.ef4e960)
