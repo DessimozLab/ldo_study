@@ -25,11 +25,16 @@ step2_expectedness_of_duplications
 Use to filter the branches to only duplication events.
 This is performed by computing the difference from the expected branch length and then translating this into z-scores. Branches can then be classified into six categories (p<0.05): 
 
-i) normal-normal: both branches are not significantly different\n 
+i) normal-normal: both branches are not significantly different
+ 
 ii) short-short: both branches are significantly shorter than expected
+
 iii) long-long: both branches are significantly longer than expected
+
 iv) normal-long: only one branch is significantly longer than expected
+
 v) short-normal: only one branch is significantly shorter than expected
+
 vi) short-long: one branch is significantly shorter than expected and the other is significantly longer than expected.
 
 Also generates Fig 1, Supp Fig 1, Supp Fig 2
