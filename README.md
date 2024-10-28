@@ -104,4 +104,4 @@ At various steps several external tools are called by these scripts and notebook
 
 Installation instuctions and dependencies for the software used in this project can be found at the following locations:
 
-foldseek:[https://github.com/steineggerlab/foldseek] (v8.ef4e960)
+foldseek: [https://github.com/steineggerlab/foldseek] (v8.ef4e960)
