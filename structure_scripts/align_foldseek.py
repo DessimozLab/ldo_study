@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# align for each pair which we have the struct pred for using USalign
+# align for each pair which we have the struct pred for using foldseek
 from functools import lru_cache
 from tqdm.auto import tqdm
 import pandas as pd
@@ -77,6 +77,15 @@ elif part == 2:
 elif part == 3:
     pbar = tqdm(total=has_out_f.sum())
     x = list(pair_df[has_out_f].apply(lambda x: align(struct_db, x['species'], x['mdo_gene'], x['outgroup_species'], x['out_gene']), axis=1))
+elif part == 4:
+    pbar = tqdm(total=len(pair_df))
+    x = list(pair_df.apply(lambda x: align(struct_db, x['species'], x['ldo_gene'], x['new_out_species'], x['new_out_gene']), axis=1))
+elif part == 5:
+    pbar = tqdm(total=len(pair_df))
+    x = list(pair_df.apply(lambda x: align(struct_db, x['species'], x['mdo_gene'], x['new_out_species'], x['new_out_gene']), axis=1))
+elif part == 6:
+    pbar = tqdm(total=len(pair_df))
+    x = list(pair_df.apply(lambda x: align(struct_db, x['outgroup_species'], x['out_gene'], x['new_out_species'], x['new_out_gene']), axis=1))
 else:
     raise ValueError('unknown part {}'.format(part))
 
